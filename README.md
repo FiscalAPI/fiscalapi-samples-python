@@ -41,7 +41,7 @@ El SDK de FiscalAPI para Python ofrece una amplia gama de funcionalidades para l
 - Respuestas en formato estructurado para fácil procesamiento
 
 
-## Requisitos previos
+## Requisitos previos de este ejemplo:
 
 - Python 3.8 o superior
 - pip (gestor de paquetes de Python)
