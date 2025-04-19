@@ -27,9 +27,11 @@ El SDK de FiscalAPI para Python ofrece una amplia gama de funcionalidades para l
 - Gestión de certificados CSD (subir archivos .cer y .key a fiscalapi)
 - Configuración de datos fiscales (RFC, domicilio fiscal, régimen fiscal)
 
-### Catálogos y productos
+### Gestion de productos/servicios
 - Gestión de productos y servicios
 - Administración de impuestos aplicables (IVA, ISR, IEPS)
+
+### Consulta de catalogos SAT
 - Consulta en catálogos oficiales del SAT
 - Búsqueda de información en catálogos del SAT
 
