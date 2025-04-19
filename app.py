@@ -1,6 +1,6 @@
 from datetime import datetime
 from decimal import Decimal
-from fiscalapi import CancelInvoiceRequest, CreatePdfRequest, FiscalApiSettings, FiscalApiClient, Invoice, InvoiceIssuer, InvoiceItem, InvoicePayment, InvoiceRecipient, ItemTax, PaidInvoice, PaidInvoiceTax, Person, Product, ProductTax, RelatedInvoice, SendInvoiceRequest, TaxCredential, TaxFile
+from fiscalapi import CancelInvoiceRequest, CreatePdfRequest, FiscalApiSettings, FiscalApiClient, Invoice, InvoiceIssuer, InvoiceItem, InvoicePayment, InvoiceRecipient, InvoiceStatusRequest, ItemTax, PaidInvoice, PaidInvoiceTax, Person, Product, ProductTax, RelatedInvoice, SendInvoiceRequest, TaxCredential, TaxFile
 
 
 def main ():
@@ -13,6 +13,7 @@ def main ():
             api_key="<api_key>",
             tenant="<tenant_key>",
     )
+    
     client = FiscalApiClient(settings=settings)
     
     
@@ -1069,13 +1070,33 @@ def main ():
     
     
     #### enviar factura por correo por referencias (Sdk) ####
-    request = SendInvoiceRequest(
-        invoice_id="181d11b8-2638-4f8e-a622-075bdebffcf7",
-        to_email= "mail@domain.com",
-    )
-    api_response = client.invoices.send(request)
-    print(api_response)
+    # request = SendInvoiceRequest(
+    #     invoice_id="181d11b8-2638-4f8e-a622-075bdebffcf7",
+    #     to_email= "mail@domain.com",
+    # )
+    # api_response = client.invoices.send(request)
+    # print(api_response)
     
+    
+    # Consultar estado de factura por valores
+    # invoice_status = InvoiceStatusRequest(
+    #     issuer_tin="POPJ450924HD6",           # RFC del emisor
+    #     recipient_tin="MEJJ940824C61",        # RFC del receptor
+    #     invoice_total=Decimal("430.00"),      # Total de la factura
+    #     invoice_uuid="8e0fdc23-e148-4cf5-b3ce-4459f31c9c45",  # UUID de la factura
+    #     last8_digits_issuer_signature="oxPKRg=="  # Últimos 8 dígitos del sello digital del emisor
+    # )
+    # api_response = client.invoices.get_status(invoice_status)
+    # print(api_response)
+    
+    
+    
+    #Consultar estado de factura por referencias (id)
+    invoice_status = InvoiceStatusRequest(
+        id="16444d58-37e0-4a86-b247-a73bcc18c751"
+    )
+    api_response = client.invoices.get_status(invoice_status)
+    print(api_response)
     
     
     
